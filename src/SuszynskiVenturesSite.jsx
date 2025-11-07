@@ -8,6 +8,14 @@ import {
 export default function SuszynskiVenturesSite() {
   // make scroll-based effects work
   const { scrollYProgress } = useScroll();
+  // mouse glow logic
+const [cursor, setCursor] = useState({ x: -500, y: -500 });
+
+useEffect(() => {
+  const move = (e) => setCursor({ x: e.clientX, y: e.clientY });
+  window.addEventListener("mousemove", move);
+  return () => window.removeEventListener("mousemove", move);
+}, []);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
@@ -15,6 +23,14 @@ export default function SuszynskiVenturesSite() {
       className="relative min-h-screen overflow-x-hidden bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-black/10 dark:selection:bg-white/20"
       style={{ scrollBehavior: "smooth" }}
     >
+      {/* mouse-follow glow */}
+<motion.div
+  className="pointer-events-none fixed z-30 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),rgba(236,72,153,0.08)_40%,transparent_70%)] blur-3xl"
+  style={{
+    left: cursor.x - 300,
+    top: cursor.y - 300,
+  }}
+/>
       {/* pretty gradient blobs in the back */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-0"
