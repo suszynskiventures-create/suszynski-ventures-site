@@ -100,10 +100,12 @@ export default function SuszynskiVenturesSite() {
       {/* About */}
       <section id="about" className="relative z-10 mx-auto max-w-6xl px-4 py-20">
         <h2 className="text-2xl font-semibold mb-4">About</h2>
-        <p className="text-neutral-600 dark:text-neutral-300 mb-6">
-          Suszynski Ventures operates as an incubator and holding company, managing a portfolio of
-          early-stage brands. Each venture begins as a DBA under the LLC and, upon growth, is spun out as its own entity.
-        </p>
+          <p className="text-neutral-600 dark:text-neutral-300 mb-6">
+    Suszynski Ventures LLC is a private incubator dedicated to building and accelerating the
+    next generation of innovative consumer-technology ventures. We focus on identifying
+    high-impact ideas, shaping them into scalable products, and guiding each through early
+    growth with design, strategy, and operational support.
+  </p>
         <div className="grid md:grid-cols-4 gap-4 text-sm">
           <div className="flex items-start gap-2">
             <Sparkles size={16} />{" "}
